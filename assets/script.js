@@ -94,7 +94,11 @@ const getCriteria = function () {
 
 // Function to generate password - pass in confirmedCriteria
 function generatePassword(confirmedCriteria) {
-  // const lowercaseInput
+  // choices = confirmedCtieria values that are true
+  // const getRandomValue = function() to generate random values from arrays
+  // for (let i = 0; i < lettersArray.length; i++) {
+  //   uppercase += lettersArray.[i];
+  // return const userPassword = []
 }
 
 // Write password to the #password input

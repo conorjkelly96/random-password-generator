@@ -93,7 +93,7 @@ const getCriteria = function () {
   // const = confirmUppercase
   // const = confirmNumeric
   // const = confirmSpecialCharacters
-  //If all Prompt input = False - return user error
+  // If all Prompt input = False - return user error
   // if all 'confirm' = False = alert & break
   // if all 'confirm' = TRUE, return Store user input into an object
   // const confirmedCriteria = {length: 21, lower: confirmLowerCase etc}
@@ -103,8 +103,9 @@ const getCriteria = function () {
 function generatePassword(confirmedCriteria) {
   // choices = confirmedCtieria values that are true
   // const getRandomValue = function() to generate random values from arrays
+  // Why can't we use a while loop = while final password < lengthCriteria
   // for (let i = 0; i < lettersArray.length; i++) {
-  //   uppercase += lettersArray.[i];
+  // uppercase += lettersArray.[i];
   // return const userPassword = []
 }
 

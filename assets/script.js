@@ -146,11 +146,13 @@ function generatePassword() {
   const criteria = getCriteria();
   console.log(criteria);
   // while object values are true
-  //
-  // cycle through global arrays
-  //
-  // and return a password
-  return userPassword;
+  let objectCycle = 0;
+  const userPassword = [];
+  while (objectCycle < criteria.passwordLength)
+    // cycle through global arrays
+    //
+    // and return a password
+    return userPassword;
 }
 
 // Write password to the #password input

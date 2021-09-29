@@ -78,15 +78,22 @@ const specialArray = [
   ":",
 ];
 
+// Variables for function inputs
+let passwordLengthInput;
+let uppercaseInput;
+let lowercaseInput;
+let specialsInput;
+let numbersInput;
+
 // Function to take user criteria for password
 const getCriteria = function () {
   // Prompt - password length: => 8 & 128 <= && check within range && convert to integer
-  //If Prompt input = False - return user error
-  //If Prompt input = TRUE
-  // const = confirmLowercase
+  // x4 function prompts for each criteria
+  // const confirmLowercase
   // const = confirmUppercase
   // const = confirmNumeric
   // const = confirmSpecialCharacters
+  //If all Prompt input = False - return user error
   // if all 'confirm' = False = alert & break
   // if all 'confirm' = TRUE, return Store user input into an object
   // const confirmedCriteria = {length: 21, lower: confirmLowerCase etc}

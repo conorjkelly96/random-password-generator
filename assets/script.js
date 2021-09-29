@@ -79,7 +79,7 @@ const specialArray = [
 ];
 
 // Function to take user criteria for password
-const getCritera = function () {
+const getCriteria = function () {
   // Prompt - password length: => 8 & 128 <= && check within range && convert to integer
   //If Prompt input = False - return user error
   //If Prompt input = TRUE
@@ -88,12 +88,13 @@ const getCritera = function () {
   // const = confirmNumeric
   // const = confirmSpecialCharacters
   // if all 'confirm' = False = alert & break
-  // if all 'confirm' = TRUE, return Store user input  into an object
+  // if all 'confirm' = TRUE, return Store user input into an object
+  // const confirmedCriteria = {length: 21, lower: confirmLowerCase etc}
 };
 
-// Function to generate password - pass in return from getCriteria
-function generatePassword() {
-  //
+// Function to generate password - pass in confirmedCriteria
+function generatePassword(confirmedCriteria) {
+  // const lowercaseInput
 }
 
 // Write password to the #password input

@@ -148,11 +148,12 @@ function generatePassword() {
   // while object values are true
   let objectCycle = 0;
   const userPassword = [];
-  while (objectCycle < criteria.passwordLength)
-    // cycle through global arrays
-    //
-    // and return a password
-    return userPassword;
+  // TO DO - For Loop
+  // if criteria.lowercase = true, then take random values
+  // if criteria.uppercase = true, then take random values
+  // if criteria.numbers = true, then take random values
+  // if criteria.specials = true, then take random values
+  return userPassword;
 }
 
 // Write password to the #password input

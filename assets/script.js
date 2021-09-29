@@ -78,7 +78,7 @@ const specialArray = [
   ":",
 ];
 
-// Variables for function inputs
+// Variables for user inputs to be passed into getCriteria
 let passwordLengthInput;
 let uppercaseInput;
 let lowercaseInput;
@@ -88,7 +88,7 @@ let numbersInput;
 // Function to take user criteria for password
 const getCriteria = function () {
   // Prompt - password length: => 8 & 128 <= && check within range && convert to integer
-  // x4 function prompts for each criteria
+  // x4 function prompts for each criteria - are these functions created within getCriteria or determined outside and called within?
   // const confirmLowercase
   // const = confirmUppercase
   // const = confirmNumeric

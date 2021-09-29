@@ -145,6 +145,12 @@ const getCriteria = function () {
 function generatePassword() {
   const criteria = getCriteria();
   console.log(criteria);
+  // while object values are true
+  //
+  // cycle through global arrays
+  //
+  // and return a password
+  return userPassword;
 }
 
 // Write password to the #password input

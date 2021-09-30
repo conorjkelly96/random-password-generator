@@ -81,13 +81,6 @@ const specialArray = [
   ":",
 ];
 
-// Variables for user inputs to be passed into getCriteria
-let passwordLengthInput;
-let uppercaseInput;
-let lowercaseInput;
-let specialsInput;
-let numbersInput;
-
 // Get User Inputs - Password Length
 const getPasswordLength = function () {
   const userLengthInput = prompt("Please enter a password length");

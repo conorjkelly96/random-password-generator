@@ -130,8 +130,14 @@ const getCriteria = function () {
     numbers: confirmNumbers,
     specials: confirmSpecials,
   };
-  return passwordCriteria;
-  // TO DO - IF ALL CONDITIONS ARE FALSE, THEN SHOW "YOU HAVE SELECTED NO CONDITIONS, TRY AGAIN"
+  if (
+    passwordCriteria.numbers == false &&
+    passwordCriteria.lowercase == false &&
+    passwordCriteria.uppercase == false &&
+    passwordCriteria.specials == false
+  ) {
+    alert("You have not selected a valid password criteria.");
+  } else return passwordCriteria;
 };
 
 // Function to generate password - pass in confirmedCriteria
@@ -139,8 +145,7 @@ function generatePassword() {
   const criteria = getCriteria();
   console.log(criteria);
   // while object values are true
-  let objectCycle = 0;
-  const userPassword = [];
+  const userPassword = "";
   // TO DO - For Loop
   // if criteria.lowercase = true, then take random values
   // if criteria.uppercase = true, then take random values
@@ -159,5 +164,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-console.log("testing the browser");

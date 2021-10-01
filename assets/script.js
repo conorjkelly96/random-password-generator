@@ -145,12 +145,24 @@ function generatePassword() {
   const criteria = getCriteria();
   console.log(criteria);
   // while object values are true
-  const userPassword = "";
-  // TO DO - For Loop
-  // if criteria.lowercase = true, then take random values
-  // if criteria.uppercase = true, then take random values
-  // if criteria.numbers = true, then take random values
-  // if criteria.specials = true, then take random values
+  let iterateArray = "";
+  const userPassword = [];
+  while (iterateArray < criteria.passwordLength) {
+    getRandomUpper =
+      upperLettersArray[Math.floor(Math.random() * upperLettersArray.length)];
+    getRandomLower =
+      lowerLettersArray[Math.floor(Math.random() * lowerLettersArray.length)];
+    getRandomSpecials =
+      specialArray[Math.floor(Math.random() * specialArray.length)];
+    getRandomNumber =
+      numbersArray[Math.floor(Math.random() * numbersArray.length)];
+    if (criteria.confirmLowercase == true) return getRandomLower;
+    else if ((criteria.confirmUppercase = true)) return getRandomUpper;
+    else if (criteria.confirmNumbers == true) return getRandomNumber;
+    else if (criteria.confirmSpecials == true) return getRandomSpecials;
+  }
+  userPassword =
+    getRandomSpecials + getRandomUpper + getRandomNumber + getRandomLower;
   return userPassword;
 }
 

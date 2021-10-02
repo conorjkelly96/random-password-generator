@@ -132,35 +132,64 @@ const getCriteria = function () {
     specials: confirmSpecials,
   };
   if (
-    passwordCriteria.numbers == false &&
-    passwordCriteria.lowercase == false &&
-    passwordCriteria.uppercase == false &&
-    passwordCriteria.specials == false
+    !passwordCriteria.numbers &&
+    !passwordCriteria.lowercase &&
+    !passwordCriteria.uppercase &&
+    !passwordCriteria.specials
   ) {
     alert("You have not selected a valid password criteria.");
   }
   return passwordCriteria;
 };
 
+const getRandomValue = function (arr) {
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  const elemValue = arr[randomIndex];
+  return elemValue;
+}
+
 // Function to generate password - pass in confirmedCriteria
 function generatePassword() {
   const criteria = getCriteria();
-  let iterateArray = 0;
-  getRandomUpper =
-    upperLettersArray[Math.floor(Math.random() * upperLettersArray.length)];
-  getRandomLower =
-    lowerLettersArray[Math.floor(Math.random() * lowerLettersArray.length)];
-  getRandomSpecials =
-    specialArray[Math.floor(Math.random() * specialArray.length)];
-  getRandomNumber =
-    numbersArray[Math.floor(Math.random() * numbersArray.length)];
-  while (iterateArray < criteria.passwordLength) {
-    if (criteria.confirmLowercase == true) return getRandomLower;
-    if (criteria.confirmUppercase == true) return getRandomUpper;
-    if (criteria.confirmNumbers == true) return getRandomNumber;
-    if (criteria.confirmSpecials == true) return getRandomSpecials;
+  const userPasswordChoices = [];
+
+  if (criteria.uppercase) {
+    getRandomUpper = getRandomValue(upperLettersArray);
+    console.log(getRandomUpper)
+    userPasswordChoices.push(getRandomUpper);
   }
-  return userPassword;
+
+  if (criteria.lowercase) {
+    getRandomLower = getRandomValue(lowerLettersArray);
+    console.log(getRandomLower);
+    userPasswordChoices.push(getRandomLower);
+  }
+
+  if (criteria.specials) {
+    getRandomSpecials = getRandomValue(specialArray);
+    console.log(getRandomSpecials);
+    userPasswordChoices.push(getRandomSpecials);
+  }
+
+  if (criteria.numbers) {
+    getRandomNumber = getRandomValue(numbersArray);
+    console.log(getRandomNumber);
+    userPasswordChoices.push(getRandomNumber);
+  }
+
+  // Loop to collate user defined values
+  for (i = 0, )
+
+  console.log(userPasswordChoices);
+
+  // while (iterateArray < criteria.passwordLength) {
+  //   if (criteria.confirmLowercase) return getRandomLower;
+  //   if (criteria.confirmUppercase) return getRandomUpper;
+  //   if (criteria.confirmNumbers) return getRandomNumber;
+  //   if (criteria.confirmSpecials) return getRandomSpecials;
+
+  // const userPassword =
+  // return userPassword;
 }
 
 // Write password to the #password input

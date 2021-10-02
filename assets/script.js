@@ -146,7 +146,7 @@ const getRandomValue = function (arr) {
   const randomIndex = Math.floor(Math.random() * arr.length);
   const elemValue = arr[randomIndex];
   return elemValue;
-}
+};
 
 // Function to generate password - pass in confirmedCriteria
 function generatePassword() {
@@ -155,7 +155,7 @@ function generatePassword() {
 
   if (criteria.uppercase) {
     getRandomUpper = getRandomValue(upperLettersArray);
-    console.log(getRandomUpper)
+    console.log(getRandomUpper);
     userPasswordChoices.push(getRandomUpper);
   }
 
@@ -177,19 +177,17 @@ function generatePassword() {
     userPasswordChoices.push(getRandomNumber);
   }
 
-  // Loop to collate user defined values
-  for (i = 0, )
-
+  const userPassword = [];
   console.log(userPasswordChoices);
+  console.log(criteria.passwordLength);
 
-  // while (iterateArray < criteria.passwordLength) {
-  //   if (criteria.confirmLowercase) return getRandomLower;
-  //   if (criteria.confirmUppercase) return getRandomUpper;
-  //   if (criteria.confirmNumbers) return getRandomNumber;
-  //   if (criteria.confirmSpecials) return getRandomSpecials;
+  for (let i = 0; i < criteria.passwordLength; i++) {
+    let password = getRandomValue(userPasswordChoices);
+    userPassword.push(password);
+  }
 
-  // const userPassword =
-  // return userPassword;
+  console.log("your password is", userPassword);
+  return userPassword.join("");
 }
 
 // Write password to the #password input

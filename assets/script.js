@@ -86,10 +86,11 @@ const getPasswordLength = function () {
   const userLengthInput = prompt("Please enter a password length");
   const passwordLength = parseInt(userLengthInput, 10);
   if (passwordLength < 8 && passwordLength > 125) {
-    return alert(
+    alert(
       "The password length must be between 8 and 125 characters. Please try again."
     );
-  } else return passwordLength;
+  }
+  return passwordLength;
 };
 
 // Get User Inputs - upper case
@@ -137,32 +138,28 @@ const getCriteria = function () {
     passwordCriteria.specials == false
   ) {
     alert("You have not selected a valid password criteria.");
-  } else return passwordCriteria;
+  }
+  return passwordCriteria;
 };
 
 // Function to generate password - pass in confirmedCriteria
 function generatePassword() {
   const criteria = getCriteria();
-  console.log(criteria);
-  // while object values are true
-  let iterateArray = "";
-  const userPassword = [];
+  let iterateArray = 0;
+  getRandomUpper =
+    upperLettersArray[Math.floor(Math.random() * upperLettersArray.length)];
+  getRandomLower =
+    lowerLettersArray[Math.floor(Math.random() * lowerLettersArray.length)];
+  getRandomSpecials =
+    specialArray[Math.floor(Math.random() * specialArray.length)];
+  getRandomNumber =
+    numbersArray[Math.floor(Math.random() * numbersArray.length)];
   while (iterateArray < criteria.passwordLength) {
-    getRandomUpper =
-      upperLettersArray[Math.floor(Math.random() * upperLettersArray.length)];
-    getRandomLower =
-      lowerLettersArray[Math.floor(Math.random() * lowerLettersArray.length)];
-    getRandomSpecials =
-      specialArray[Math.floor(Math.random() * specialArray.length)];
-    getRandomNumber =
-      numbersArray[Math.floor(Math.random() * numbersArray.length)];
     if (criteria.confirmLowercase == true) return getRandomLower;
-    else if ((criteria.confirmUppercase = true)) return getRandomUpper;
-    else if (criteria.confirmNumbers == true) return getRandomNumber;
-    else if (criteria.confirmSpecials == true) return getRandomSpecials;
+    if (criteria.confirmUppercase == true) return getRandomUpper;
+    if (criteria.confirmNumbers == true) return getRandomNumber;
+    if (criteria.confirmSpecials == true) return getRandomSpecials;
   }
-  userPassword =
-    getRandomSpecials + getRandomUpper + getRandomNumber + getRandomLower;
   return userPassword;
 }
 

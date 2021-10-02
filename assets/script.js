@@ -85,7 +85,7 @@ const specialArray = [
 const getPasswordLength = function () {
   const userLengthInput = prompt("Please enter a password length");
   const passwordLength = parseInt(userLengthInput, 10);
-  if (passwordLength < 8 && passwordLength > 125) {
+  if (passwordLength < 8 || (passwordLength > 125 && isNaN(userLengthInput))) {
     alert(
       "The password length must be between 8 and 125 characters. Please try again."
     );

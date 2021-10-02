@@ -36,7 +36,7 @@ const getUppercaseInput = function () {
 };
 ```
 
-### Storing user defined input
+### Storing User Defined Input
 
 Once the user defined their password properties, it's important to store this input locally which will be passed onto the generator function. I created an object to pass the values of the input after the user input functions were called:
 
@@ -69,7 +69,7 @@ const getCriteria = function () {
 
 Part of the validation process and edge case handling was "what happens if the user clicked no to all character type questions?". This would mean a password could not be generated, therefore a the final piece of the getCriteria() function is to check if the user answered 'false' to all questions, and if so return an alert.
 
-### CSS Code Refactoring
+### Password Generator Function
 
 I saw the original CSS code contained duplicate blocks of formatting, and found an opportunity to reduce complexity through class commonality. An example below represents the original source code:
 

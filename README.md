@@ -69,45 +69,8 @@ const getCriteria = function () {
 
 Part of the validation process and edge case handling was "what happens if the user clicked no to all character type questions?". This would mean a password could not be generated, therefore a the final piece of the getCriteria() function is to check if the user answered 'false' to all questions, and if so return an alert.
 
-### Password Generator Function
-
-I saw the original CSS code contained duplicate blocks of formatting, and found an opportunity to reduce complexity through class commonality. An example below represents the original source code:
-
-```
-.benefit-lead {
-  margin-bottom: 32px;
-  color: #ffffff;
-}
-
-.benefit-brand {
-  margin-bottom: 32px;
-  color: #ffffff;
-}
-
-.benefit-cost {
-  margin-bottom: 32px;
-  color: #ffffff;
-}
-```
-
-Which was refactored to a single class within the HTML code and updated within the CSS code:
-
-```
-/* class commonality to alleviate need to duplicate CSS blocks */
-.benefit-subsection {
-  margin-bottom: 32px;
-  color: #ffffff;
-}
-```
-
 ## Final Website Structure
 
-The layout of Horiseon's website after refactoring the CSS and HTML source code is shown below:
+The layout of the password generator is below:
 
-![Original Website](assets/images/01-html-css-git-homework-demo.png)
-
-Note, the layout and aesthetic design of the website has not changed. It's kept it's original layout, however the source code has been semantically refactored and improved to ensure improved Search Engine Optimization and accessibility.
-
-## To Do
-
-In the future, I will update this website to include media queries, ensuring the website is fit for users across different viewports.
+![Website](assets/images/site.png)

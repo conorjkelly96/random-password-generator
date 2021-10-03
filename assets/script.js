@@ -80,12 +80,15 @@ const specialArray = [
   "?",
   ":",
 ];
+
 // valid criteria
-const validCriteria = function () {
+const checkValidCriteria = function () {
   const validLengthBottom = passwordLength > 8;
   const validLengthTop = passwordLength < 125;
   const validEntry = isNaN(userLengthInput) === false;
 };
+
+const validCritera = checkValidCriteria();
 
 // Get User Inputs - Password Length
 const getPasswordLength = function () {

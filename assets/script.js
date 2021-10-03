@@ -116,33 +116,32 @@ const getNumbersInput = function () {
 const getCriteria = function () {
   const confirmPasswordLength = getPasswordLength();
   if (confirmPasswordLength < 8 || confirmPasswordLength > 125) {
-    {
-      alert(
-        "The password length must be between 8 and 125 characters. Please try again."
-      );
-      return;
+    alert(
+      "The password length must be between 8 and 125 characters. Please try again."
+    );
+    return;
+  } else {
+    const confirmLowercase = getLowercaseInput();
+    const confirmUppercase = getUppercaseInput();
+    const confirmNumbers = getNumbersInput();
+    const confirmSpecials = getSpecialsInput();
+    const passwordCriteria = {
+      passwordLength: confirmPasswordLength,
+      lowercase: confirmLowercase,
+      uppercase: confirmUppercase,
+      numbers: confirmNumbers,
+      specials: confirmSpecials,
+    };
+    if (
+      !passwordCriteria.numbers &&
+      !passwordCriteria.lowercase &&
+      !passwordCriteria.uppercase &&
+      !passwordCriteria.specials
+    ) {
+      alert("You have not selected a valid password criteria.");
     }
+    return passwordCriteria;
   }
-  const confirmLowercase = getLowercaseInput();
-  const confirmUppercase = getUppercaseInput();
-  const confirmNumbers = getNumbersInput();
-  const confirmSpecials = getSpecialsInput();
-  const passwordCriteria = {
-    passwordLength: confirmPasswordLength,
-    lowercase: confirmLowercase,
-    uppercase: confirmUppercase,
-    numbers: confirmNumbers,
-    specials: confirmSpecials,
-  };
-  if (
-    !passwordCriteria.numbers &&
-    !passwordCriteria.lowercase &&
-    !passwordCriteria.uppercase &&
-    !passwordCriteria.specials
-  ) {
-    alert("You have not selected a valid password criteria.");
-  }
-  return passwordCriteria;
 };
 
 const getRandomValue = function (arr) {
@@ -158,28 +157,23 @@ function generatePassword() {
   const randomValues = [];
 
   if (criteria.uppercase) {
-    getRandomUpper = getRandomValue(upperLettersArray);
-    userPasswordChoices.push(getRandomUpper);
-    randomValues.concat(getRandomValue(upperLettersArray));
+    userPasswordChoices.push(...upperLettersArray);
+    randomValues.push(getRandomValue(upperLettersArray));
   }
 
   if (criteria.lowercase) {
-    getRandomLower = getRandomValue(lowerLettersArray);
-    userPasswordChoices.push(getRandomLower);
-    randomValues.concat(getRandomValue(lowerLettersArray));
+    userPasswordChoices.push(...lowerLettersArray);
+    randomValues.push(getRandomValue(lowerLettersArray));
   }
 
   if (criteria.specials) {
-    getRandomSpecials = getRandomValue(specialArray);
-    userPasswordChoices.push(getRandomSpecials);
-    randomValues.concat(getRandomValue(specialArray));
+    userPasswordChoices.push(...specialArray);
+    randomValues.push(getRandomValue(specialArray));
   }
 
   if (criteria.numbers) {
-    getRandomNumber = getRandomValue(numbersArray);
-    userPasswordChoices.push(getRandomNumber);
-    randomValues.concat(getRandomValue(numbersArray));
-    console.log(randomValues);
+    userPasswordChoices.push(...numbersArray);
+    randomValues.push(getRandomValue(numbersArray));
   }
 
   const userPassword = [];
@@ -193,7 +187,6 @@ function generatePassword() {
     userPassword[i] = randomValues[i];
   }
 
-  console.log("your password is", userPassword);
   return userPassword.join("");
 }
 

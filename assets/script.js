@@ -178,8 +178,6 @@ function generatePassword() {
   }
 
   const userPassword = [];
-  console.log(userPasswordChoices);
-  console.log(criteria.passwordLength);
 
   for (let i = 0; i < criteria.passwordLength; i++) {
     let password = getRandomValue(userPasswordChoices);

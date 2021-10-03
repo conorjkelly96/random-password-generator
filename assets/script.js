@@ -85,15 +85,6 @@ const specialArray = [
 const getPasswordLength = function () {
   const userLengthInput = prompt("Please enter a password length");
   const passwordLength = parseInt(userLengthInput, 10);
-  if (
-    passwordLength < 8 ||
-    passwordLength > 125 ||
-    isNaN(userLengthInput) === true
-  ) {
-    alert(
-      "The password length must be between 8 and 125 characters. Please try again."
-    );
-  }
   return passwordLength;
 };
 
@@ -124,6 +115,14 @@ const getNumbersInput = function () {
 // Function to take user criteria for password
 const getCriteria = function () {
   const confirmPasswordLength = getPasswordLength();
+  if (confirmPasswordLength < 8 || confirmPasswordLength > 125) {
+    {
+      alert(
+        "The password length must be between 8 and 125 characters. Please try again."
+      );
+      return;
+    }
+  }
   const confirmLowercase = getLowercaseInput();
   const confirmUppercase = getUppercaseInput();
   const confirmNumbers = getNumbersInput();
@@ -156,25 +155,31 @@ const getRandomValue = function (arr) {
 function generatePassword() {
   const criteria = getCriteria();
   const userPasswordChoices = [];
+  const randomValues = [];
 
   if (criteria.uppercase) {
     getRandomUpper = getRandomValue(upperLettersArray);
     userPasswordChoices.push(getRandomUpper);
+    randomValues.concat(getRandomValue(upperLettersArray));
   }
 
   if (criteria.lowercase) {
     getRandomLower = getRandomValue(lowerLettersArray);
     userPasswordChoices.push(getRandomLower);
+    randomValues.concat(getRandomValue(lowerLettersArray));
   }
 
   if (criteria.specials) {
     getRandomSpecials = getRandomValue(specialArray);
     userPasswordChoices.push(getRandomSpecials);
+    randomValues.concat(getRandomValue(specialArray));
   }
 
   if (criteria.numbers) {
     getRandomNumber = getRandomValue(numbersArray);
     userPasswordChoices.push(getRandomNumber);
+    randomValues.concat(getRandomValue(numbersArray));
+    console.log(randomValues);
   }
 
   const userPassword = [];
@@ -182,6 +187,10 @@ function generatePassword() {
   for (let i = 0; i < criteria.passwordLength; i++) {
     let password = getRandomValue(userPasswordChoices);
     userPassword.push(password);
+  }
+
+  for (let i = 0; i < randomValues.length; i++) {
+    userPassword[i] = randomValues[i];
   }
 
   console.log("your password is", userPassword);

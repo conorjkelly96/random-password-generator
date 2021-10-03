@@ -80,14 +80,22 @@ const specialArray = [
   "?",
   ":",
 ];
+// valid criteria
+const validCriteria = function () {
+  const validLengthBottom = passwordLength > 8;
+  const validLengthTop = passwordLength < 125;
+  const validEntry = isNaN(userLengthInput) === false;
+};
 
 // Get User Inputs - Password Length
 const getPasswordLength = function () {
   const userLengthInput = prompt("Please enter a password length");
   const passwordLength = parseInt(userLengthInput, 10);
-  const invalidInput =
-    passwordLength < 8 || (passwordLength > 125 && isNaN(userLengthInput));
-  if (!invalidInput) {
+  if (
+    passwordLength < 8 ||
+    passwordLength > 125 ||
+    isNaN(userLengthInput) === true
+  ) {
     alert(
       "The password length must be between 8 and 125 characters. Please try again."
     );
@@ -157,25 +165,21 @@ function generatePassword() {
 
   if (criteria.uppercase) {
     getRandomUpper = getRandomValue(upperLettersArray);
-    console.log(getRandomUpper);
     userPasswordChoices.push(getRandomUpper);
   }
 
   if (criteria.lowercase) {
     getRandomLower = getRandomValue(lowerLettersArray);
-    console.log(getRandomLower);
     userPasswordChoices.push(getRandomLower);
   }
 
   if (criteria.specials) {
     getRandomSpecials = getRandomValue(specialArray);
-    console.log(getRandomSpecials);
     userPasswordChoices.push(getRandomSpecials);
   }
 
   if (criteria.numbers) {
     getRandomNumber = getRandomValue(numbersArray);
-    console.log(getRandomNumber);
     userPasswordChoices.push(getRandomNumber);
   }
 

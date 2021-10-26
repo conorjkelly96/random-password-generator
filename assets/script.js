@@ -85,6 +85,7 @@ const specialArray = [
 const getPasswordLength = function () {
   const userLengthInput = prompt("Please enter a password length");
   const passwordLength = parseInt(userLengthInput, 10);
+
   return passwordLength;
 };
 
@@ -115,32 +116,36 @@ const getNumbersInput = function () {
 // Function to take user criteria for password
 const getCriteria = function () {
   const confirmPasswordLength = getPasswordLength();
-  if (confirmPasswordLength < 8 || confirmPasswordLength > 125) {
-    alert(
-      "The password length must be between 8 and 125 characters. Please try again."
-    );
-    return;
+  if (!confirmPasswordLength) {
+    alert("You have not entered a password length. Please try again.");
   } else {
-    const confirmLowercase = getLowercaseInput();
-    const confirmUppercase = getUppercaseInput();
-    const confirmNumbers = getNumbersInput();
-    const confirmSpecials = getSpecialsInput();
-    const passwordCriteria = {
-      passwordLength: confirmPasswordLength,
-      lowercase: confirmLowercase,
-      uppercase: confirmUppercase,
-      numbers: confirmNumbers,
-      specials: confirmSpecials,
-    };
-    if (
-      !passwordCriteria.numbers &&
-      !passwordCriteria.lowercase &&
-      !passwordCriteria.uppercase &&
-      !passwordCriteria.specials
-    ) {
-      alert("You have not selected a valid password criteria.");
+    if (confirmPasswordLength < 8 || confirmPasswordLength > 125) {
+      alert(
+        "The password length must be between 8 and 125 characters. Please try again."
+      );
+      return;
+    } else {
+      const confirmLowercase = getLowercaseInput();
+      const confirmUppercase = getUppercaseInput();
+      const confirmNumbers = getNumbersInput();
+      const confirmSpecials = getSpecialsInput();
+      const passwordCriteria = {
+        passwordLength: confirmPasswordLength,
+        lowercase: confirmLowercase,
+        uppercase: confirmUppercase,
+        numbers: confirmNumbers,
+        specials: confirmSpecials,
+      };
+      if (
+        !passwordCriteria.numbers &&
+        !passwordCriteria.lowercase &&
+        !passwordCriteria.uppercase &&
+        !passwordCriteria.specials
+      ) {
+        alert("You have not selected a valid password criteria.");
+      }
+      return passwordCriteria;
     }
-    return passwordCriteria;
   }
 };
 
